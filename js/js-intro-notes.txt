@@ -1,0 +1,254 @@
+DATA TYPES
+Exercises
+
+*Identify the data type of the following values:
+
+
+99.9 - number
+
+"false" - string
+
+false - boolean
+
+'0' - string
+
+0 - number
+
+true - boolean
+
+'true' - string
+
+
+*What data type would best represent:
+
+A term or phrase typed into a search box?
+-String
+
+If a user is logged in?
+-Boolean
+A discount amount to apply to a user's shopping cart?
+-Number
+
+Whether or not a coupon code is valid?
+-Boolean
+
+An email address typed into a registration form?
+-String
+
+The price of a product?
+-Number
+
+OPERATORS
+(Note that && has a higher precedence in the order of operations than || does. Like the arithmetic operations, logical operations can be 
+grouped with parentheses:
+false && false || true // true
+false && (false || true) // false)
+
+Exercises
+
+For each of the following code blocks, read the expression and predict what the result of evaluating it would be, then execute the 
+expression in the Chrome console.
+
+
+'1' + 2
+-'12'
+
+typeof '1' + 2
+-String
+
+6 % 4
+-2
+
+'3 + 4 is ' + 3 + 4
+// how could you make this produce the correct output?
+-'3+4 is 34' / '3 + 4 is ' + (3 + 4) => '3+4 is 7'
+
+0 < 0
+-False
+
+'false' == false
+-True
+
+true == 'true'
+-True
+
+5 >= -5
+-True
+
+!false || false
+-True
+
+true || "42"
+-True
+
+!true && !false
+-False
+
+6 % 5
+-1
+
+5 < 4 && 1 === 1
+-False
+
+typeof 'codeup' === 'string'
+-True
+
+'codeup' === 'codeup' && 'codeup' === 'Codeup'
+-False
+
+4 >= 0 && 1 !== '1'
+-True
+
+6 % 3 === 0
+-True
+
+5 % 2 !== 0
+-True
+
+DATA TYPES/OPERATORS/VARIABLES
+(A number can be converted to a string with the toString or toFixed methods. toString simply converts the number to a string, while 
+toFixed allows us to specify a decimal precision for the number.
+var x = 3.14;
+x.toString(); // "3.14"
+x.toFixed(1); // "3.1"
+x.toFixed(3); // "3.140"
+
+We can convert from a string to a number several ways, the simplest of which is Number:
+Number('123') // 123
+Number('0.9') // 0.9
+
+Notice what happens when we pass a string that does not have a numeric value:
+Number('asdf') // NaN
+
+This produces the special value NaN, meaning not a number. We can use the built-in function isNaN to determine whether a value is NaN, 
+or to determine whether a string can be converted to a number:
+isNaN('123') // false
+isNaN('abc') // true
+isNaN(42) // false
+isNaN(Number('abc')) // true
+
+In addition to Number() there are two specialized functions that are more forgiving:
+parseInt: attempts to convert a string to an integer value
+parseFloat: attempts to convert a string to a floating point (i.e. decimal) value
+Number('123abc') // NaN
+parseInt('123abc') // 123
+
+Immutable Strings
+
+In JavaScript, strings are immutable, meaning they will not change. We can update a variable that holds a string to contain a different 
+string, but the original string object is not changed.
+In addition, all of the methods above will not modify the original string, instead they produce a new string. Notice in the code block 
+below how the variable is not changed:
+var myString = 'javascript is cool!';
+myString.toUpperCase(); // 'JAVASCRIPT IS COOL!'
+myString; // 'javascript is cool!')
+
+Exercises
+
+1.For each of the following code blocks, read the code and predict what the result of evaluating it would be, then execute the 
+statement(s) 
+in the Chrome console.
+
+
+var a = 1;
+var b = a++;
+var c = ++a;
+// what is the value of a, b, and c?
+-A = 1
+-B = 2
+-C = 3
+
+var d = "hello";
+var e = false;
+
+d++; = NaN
+e++; = 0
+
+var perplexed; // perplexed is undefined (no value is assigned)
+perplexed + 2; = NaN
+
+var price = 2.7;
+price.toFixed(2); = "2.70"
+
+var price = "2.7";
+price.toFixed(2); = "2.70"
+
+isNaN(0) = false
+
+isNaN(1) = false
+
+isNaN("") = true
+
+isNaN("string") = true
+
+isNaN("0") = false
+
+isNaN("1") = false
+
+isNaN("3.145") = false
+
+isNaN(Number.MAX_VALUE) = false
+
+isNaN(Infinity) = false
+
+isNaN("true") = true
+
+isNaN(true) = false
+
+isNaN("false") = true
+
+isNaN(false) = false
+
+// to illustrate why the isNaN() function is needed:
+NaN == NaN => false
+
+!true = false
+
+!false = true
+
+!!true = true
+
+!!false = false
+
+!!0 = false
+
+!!-0 = false
+
+!!1 = true
+
+!!-1 = true
+
+!!0.1 = true
+
+!!"hello" = true
+
+!!"" = false
+
+!!'' = false
+
+!!"false" = true
+
+!!"0" = true
+
+2 & 3.
+
+var price = 3
+undefined
+var day = 1
+undefined
+var littleMermaid = price * (3*day)
+undefined
+var brotherBear = price * (5*day)
+undefined
+var hercules = price * day
+undefined
+var rental = littleMermaid + brotherBear + hercules
+undefined
+var google = 400, amazon = 380, facebook = 350
+undefined
+var weeklyPay = (6*google)+(4*amazon)+(10*facebook)
+undefined
+var username = 'codeup', password = 'notastrongpassword'
+undefined
+var conditions = (password.length >=5 && password.indexOf(username) = -1 && username.length <= 20 && username === username.trim() && 
+password.trim())
