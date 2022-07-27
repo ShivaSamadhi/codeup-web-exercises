@@ -1,0 +1,7 @@
+git init => initialize a repo
+git remote add origin <SSHKey> => connects remote and local repo
+git add . (or file name)
+git commit -m "the message"
+git status
+git branch => checks for the current branch
+git push origin <branch name>
