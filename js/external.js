@@ -42,6 +42,6 @@ let offer = function () {
     let twoOrMore = items >= 2
     alert(`Do you qualify for the offer: ${premium || twoOrMore}`)
 };
-enrollment()
+offer()
 
 console.log('Hello from external JavaScript');
