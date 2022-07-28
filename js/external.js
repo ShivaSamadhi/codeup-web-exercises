@@ -1,7 +1,9 @@
 "use strict";
-alert('Welcome to my Website!');
-let answer = prompt(`What's your favorite color?`);
-alert(`Awesome, ${answer} is my favorite color too!`);
+let welcome = function () {
+    alert('Welcome to my Website!');
+    let answer = prompt(`What's your favorite color?`);
+    alert(`Awesome, ${answer} is my favorite color too!`);
+}
 
 let rental = function () {
     let lM = prompt('How many days would you like to rent Little Mermaid?');
@@ -11,7 +13,6 @@ let rental = function () {
     let total = (lM*price)+(bB*price)+(herc*price);
     alert(`Your total rental price is: $${total}`);
 };
-rental();
 
 let payDay = function () {
     alert(`Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour. Google pays $400, Amazon $380, and Facebook $350.`);
@@ -25,7 +26,6 @@ let payDay = function () {
     let weeklyWage = (google*gPay)+(amazon*aPay)+(face*fPay)
     alert(`Your gross weekly income is: $${weeklyWage}`)
 };
-payDay();
 
 let enrollment = function () {
     let enroll = confirm(`Would you like to enroll in this class?`)
@@ -33,7 +33,6 @@ let enrollment = function () {
     let isConflict = confirm(`Click OKAY if the class does not conflict with your current schedule`)
     alert(`Your enrollment status is: ${enroll && isFull && isConflict}`)
 };
-enrollment()
 
 let offer = function () {
     alert(`You may be eligible for a special offer`)
@@ -42,6 +41,41 @@ let offer = function () {
     let twoOrMore = items >= 2
     alert(`Do you qualify for the offer: ${premium || twoOrMore}`)
 };
-offer()
+
+
+//Body/Button Styling
+document.querySelector('body').style.textAlign = 'center';
+
+let buttons = document.querySelectorAll("button");
+for (let btn of buttons) {
+    btn.style.margin = '20px 10px';
+    btn.style.borderStyle = 'solid';
+    btn.style.borderRadius = '5px';
+    btn.style.padding = '20px 10px';
+    btn.style.backgroundColor = '#ff2400'
+    btn.style.borderColor = 'black'
+}
+
+//Click Events
+document.querySelector('#rental').addEventListener('click', event => {
+    event.preventDefault();
+    rental();
+});
+document.querySelector('#welcome').addEventListener('click', event => {
+    event.preventDefault();
+    welcome();
+});
+document.querySelector('#payDay').addEventListener('click', event => {
+    event.preventDefault();
+    payDay()
+});
+document.querySelector('#enrollment').addEventListener('click', event => {
+    event.preventDefault();
+    enrollment()
+});
+document.querySelector('#offer').addEventListener('click', event => {
+    event.preventDefault();
+    offer()
+});
 
 console.log('Hello from external JavaScript');
