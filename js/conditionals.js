@@ -179,4 +179,8 @@ let numFunc = () => {
     }
 
 }
-numFunc()
+
+document.querySelector('#conditional').addEventListener('click', event => {
+    event.preventDefault();
+    numFunc();
+});
