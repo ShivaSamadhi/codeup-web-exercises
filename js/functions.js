@@ -105,7 +105,7 @@ document.querySelector('#tipCalc').addEventListener('click', event => {
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 let applyDiscount = (price, discount) => {
-    let totalDiscount = price * discount
-    return price - totalDiscount
+    let totalDiscount = price - (price * discount)
+    return totalDiscount
 }
 console.log(applyDiscount(100, .2))

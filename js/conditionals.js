@@ -157,25 +157,25 @@ console.log(calculateTotal(luckyNumber, bill))
 
 let numFunc = () => {
     let enterNum = confirm(`Would you like to enter a number?`)
-    if (enterNum === true) {
-        var number = prompt(`Enter your number here:`)
-        if (isNaN(parseInt(number)) === false) {
+    if (enterNum !== true) {
+        alert(`You're no fun!`)
+    } else {
+        let number = prompt(`Enter your number here:`)
+        if (isNaN(parseInt(number)) !== false) {
+            return `This is not a number`;
+        } else {
             let newNum = 100 + parseInt(number)
             let bool = number > 0
             if (number % 2 === 0) {
-                    alert(`This number is even`)
-                    alert(`${number} + 100 = ${newNum}`)
-                    alert(`Is this number positive: ${bool}`)
+                alert(`This number is even`)
+                alert(`${number} + 100 = ${newNum}`)
+                alert(`Is this number positive: ${bool}`)
             } else {
                 alert(`This number is odd`)
                 alert(`${number} + 100 = ${newNum}`)
                 alert(`Is this number positive: ${bool}`)
             }
-        } else {
-            return `This is not a number`;
         }
-    } else {
-        alert(`You're no fun!`)
     }
 
 }
