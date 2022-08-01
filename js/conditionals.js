@@ -162,7 +162,7 @@ let numFunc = () => {
     } else {
         let number = prompt(`Enter your number here:`)
         if (isNaN(parseInt(number)) !== false) {
-            return `This is not a number`;
+            alert(`This is not a number`);
         } else {
             let newNum = 100 + parseInt(number)
             let bool = number > 0

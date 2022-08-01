@@ -9,8 +9,8 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 let sayHello = (name) => {
-    return `Hello, ${name}`
-}
+    return `Hello, ${name}`;
+};
 
 /**
  * TODO:
@@ -19,8 +19,8 @@ let sayHello = (name) => {
  *
  * console.log 'helloMessage' to check your work
  */
-let helloMessage = sayHello(`Ramaj`)
-console.log(helloMessage)
+let helloMessage = sayHello(`Ramaj`);
+console.log(helloMessage);
 
 /**
  * TODO:
@@ -28,8 +28,8 @@ console.log(helloMessage)
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-let myName = `Ramaj`
-console.log(sayHello(myName))
+let myName = `Ramaj`;
+console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -53,7 +53,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 let isTwo = (num) => {
-    return num == 2
+    return num === 2;
 };
 console.log(isTwo(random));
 
