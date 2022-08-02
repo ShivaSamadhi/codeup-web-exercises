@@ -5,7 +5,6 @@ let showMultiplicationTable = () => {
         console.log(`${num} * ${i} = ${product}`)
     }
 }
-
 showMultiplicationTable()
 
 let randomNum = () => {
@@ -33,8 +32,16 @@ let pyramid = () => {
 }
 pyramid()
 
-let countByFive = () => {
+let countdownFive = () => {
     for (let i = 100; i >= 5; i -= 5)
         console.log(i)
 }
+countdownFive()
+
+let countByFive = () => {
+    for (let i = 5; i <= 100; i += 5){
+        console.log(i)
+    }
+}
 countByFive()
+

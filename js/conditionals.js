@@ -21,7 +21,7 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-/*let analyzeColor = function (color) {
+let analyzeColor = function (color) {
     if (color === `red`) {
         alert(`Apples are red.`)
     } else if (color === `yellow`) {
@@ -30,7 +30,7 @@
         alert(`We have no comparison for that color`)
     }
 }
-console.log(analyzeColor(`orange`))*/
+console.log(analyzeColor(`orange`))
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -77,7 +77,7 @@ console.log(analyzeColor(randomColor))
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-let newColor = prompt("Name a color")
+let newColor = prompt("Name a color").toLowerCase()
 analyzeColor(newColor)
 /* ########################################################################## */
 
@@ -104,22 +104,22 @@ let calculateTotal = (num, total) => {
     switch (num) {
         case 1:
             return total - (total*.1);
-            break;
+
         case 2:
             return total - (total*.25);
-            break;
+
         case 3:
             return total - (total*.35);
-            break;
+
         case 4:
             return total - (total*.50);
-            break;
+
         case 5:
-            return total*0;
-            break;
+            return 0;
+
         default:
             return total;
-            break;
+
     }
 
 };
@@ -157,7 +157,7 @@ console.log(calculateTotal(luckyNumber, bill))
 
 let numFunc = () => {
     let enterNum = confirm(`Would you like to enter a number?`)
-    if (enterNum !== true) {
+    if (!enterNum) {
         alert(`You're no fun!`)
     } else {
         let number = prompt(`Enter your number here:`)
@@ -177,7 +177,6 @@ let numFunc = () => {
             }
         }
     }
-
 }
 
 document.querySelector('#conditional').addEventListener('click', event => {
