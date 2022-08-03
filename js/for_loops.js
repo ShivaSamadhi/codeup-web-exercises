@@ -1,15 +1,15 @@
 let showMultiplicationTable = () => {
-    let num = Math.floor((Math.random() * 10) + 1)
+    let num = Math.floor((Math.random() * 10) + 1);
     for (let i = 1; i <= 10; i++) {
         let product = num * i;
-        console.log(`${num} * ${i} = ${product}`)
+        console.log(`${num} * ${i} = ${product}`);
     }
-}
-showMultiplicationTable()
+};
+showMultiplicationTable();
 
 let randomNum = () => {
     for (let i = 1; i <= 10; i++){
-        let num = Math.floor((Math.random() * 200) + 20)
+        let num = Math.floor((Math.random() * 180) + 20)
         if (num % 2 === 0){
             console.log(`${num} is even`)
         } else {
