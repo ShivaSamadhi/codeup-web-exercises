@@ -31,6 +31,9 @@ let pyramid = () => {
     console.log(string)
 }
 pyramid()
+/* for(var i = 1; i <= 9; i++){
+* console.log(i.toString().repeat(i))
+*} */
 
 let countdownFive = () => {
     for (let i = 100; i >= 5; i -= 5)
