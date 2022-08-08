@@ -25,7 +25,7 @@ let person = {
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 person.sayHello = function () {
-    return `Hello ${person.firstName} ${person.lastName}`
+    return `Hello from ${person.firstName} ${person.lastName}`
 }
     console.log(person.sayHello())
     /** TODO:
@@ -42,18 +42,19 @@ person.sayHello = function () {
      * and console.log the relevant messages for each person
      */
 
-    var shoppers = [
+    let shoppers = [
         {name: 'Cameron', amount: 180},
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
     ];
-shoppers.forEach(function(shopper,i){
-    if (shopper.amount >= 200) {
-        let newPrice = shopper.amount - shopper.amount * .12
-        console.log(`${shopper.name}, your original total was $${shopper.amount}. With our special offer you receive a 12% discount, so your new total is $${newPrice}`)
+    shoppers.forEach(function(shopper){
+    if (shopper.amount > 200) {
+        let discount = shopper.amount * .12;
+        let newPrice = shopper.amount - (shopper.amount * .12);
+        console.log(`${shopper.name}, your original total was $${shopper.amount}. With our special offer you receive ${discount} off, so your new total is $${newPrice}`);
     } else {
-        console.log(`${shopper.name}, your original total was $${shopper.amount}. You don't qualify for our special offer, so your total is still $${shopper.amount}`)
-    }
+        console.log(`${shopper.name}, your original total was $${shopper.amount}. You don't qualify for our special offer, so your total is still $${shopper.amount}`);
+    };
 })
 
     /** TODO:
@@ -131,28 +132,33 @@ let books = [
      *      ---
      *      ...
      */
-    books.forEach(function (book,i){
-    console.log(`Book #: ${books.indexOf(book)}\nTitle: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}`)
+    books.forEach(function (book){
+    console.log(`Book #: ${books.indexOf(book)+1}\nTitle: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}`)
 });
-    let bookArr = []
-    let newBook
-    function createBook(title, firstName, lastName) {
-        newBook = {
+
+
+    books.createBook = function (title, firstName, lastName) {
+        let newBook = {
             title: title,
             author:{
                 firstName: firstName,
                 lastName: lastName
             }
         }
-        bookArr.push(newBook)
-        console.log(bookArr)
+        books.push(newBook)
+        return newBook
     }
-    createBook('Natural Genesis', 'Gerald', 'Massey')
+    console.log(books.createBook('Natural Genesis', 'Gerald', 'Massey'))
+    console.log(books)
+    books.forEach(function (book){
+        console.log(`Book #: ${books.indexOf(book)+1}\nTitle: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}`)
+    });
 
-    function showBookInfo(obj) {
+
+    books.showBookInfo = function (obj) {
         console.log(`Title: ${obj.title}\nAuthor: ${obj.author.firstName} ${obj.author.lastName}`)
     }
-    showBookInfo(books[1])
+    books.showBookInfo(books[0])
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
