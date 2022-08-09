@@ -19,7 +19,6 @@
             }
             // If doRounding is true, round the result to the nearest integer.
             // Otherwise, output the complete value
-
             console.log("Area of a circle with radius: " + this.radius + ", is: " + area)
         }
     };
