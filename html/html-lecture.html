@@ -18,8 +18,31 @@ It is also the element that contains all other elements.-->
         <!--You have seen these in the title bar of your web browser, or in the name of bookmarks you make.
         There is an element, <title>, that gets added to the HTML document's <head> that provides the title to the web browser.-->
     </head>
+<!--HTML uses elements to describe the data in a web document.
+These elements help give meaning and context to information being displayed.
+All elements begin with an opening tag that is the name of the element inside of angle brackets (< and >).
+All elements end with a closing tag, which is the name of the element preceded by a /, also inside of angle brackets.-->
     <body>
     <!--The <body> element is used to define the content that the web browser will display to a user.-->
-
+        <h1><!--Heading Element--></h1>
+        <p>
+            <span>
+            <!--An inline element occupies only the space bounded by the tags that define the inline element.
+            *Generally, inline elements contain only data and other inline elements.*
+            Span elements are inline-->
+            </span>
+        <!--Paragraph Element-->
+        <!--In between the opening and closing tag is the contents of the element.
+        This can be either text, or additional html elements.-->
+        </p>
+    <!--When an element contains other elements, we say that the surrounding element is the parent element
+    The nested elements are the child elements.
+    Here, the body element is the parent and the h1 and p elements are children-->
+    <div>
+    <!--A block-level element occupies the entire space of its parent element (container), thereby creating a "block."
+    They also begin on new lines.
+    *Generally, block-level elements contain data, other block-level elements, or inline elements*
+    Division elements are block-level-->
+    </div>
     </body>
 </html>
