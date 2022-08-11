@@ -61,7 +61,7 @@ document.querySelector('#rental').addEventListener('click', event => {
     event.preventDefault();
     rental();
 });
-document.querySelector('#welcome').addEventListener('click', event => {
+document.querySelector('#welcome.html').addEventListener('click', event => {
     event.preventDefault();
     welcome();
 });
