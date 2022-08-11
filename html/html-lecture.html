@@ -7,7 +7,7 @@ This line is needed to help the browser identify the data that will follow.-->
 It is also the element that contains all other elements.-->
     <head>
     <!--The <head> element is used to tell the web browser information about the web page.-->
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"> <!--"void elements" do not contain any content, and therefore has no closing tag.-->
         <!--Metadata, or extended information, can be provided via the <meta> element within the document's <head>.
         A few examples of things specified via metadata are:
         search keywords
@@ -25,13 +25,16 @@ All elements end with a closing tag, which is the name of the element preceded b
     <body>
     <!--The <body> element is used to define the content that the web browser will display to a user.-->
         <h1><!--Heading Element--></h1>
-        <p>
+        <p id="par1"> <!--Paragraph Element-->
+            <!--HTML elements can also contain additional data, known as attributes.
+            Attributes are specified inside of the opening tag for an element.
+            Consist of a name, an = sign, and a value inside of double quotes ("").
+            Multiple attributes are separated by spaces.-->
             <span>
             <!--An inline element occupies only the space bounded by the tags that define the inline element.
             *Generally, inline elements contain only data and other inline elements.*
             Span elements are inline-->
             </span>
-        <!--Paragraph Element-->
         <!--In between the opening and closing tag is the contents of the element.
         This can be either text, or additional html elements.-->
         </p>
