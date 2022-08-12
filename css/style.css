@@ -1,4 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 .fancy-header {
     color: purple;
     text-decoration: underline;
+    text-align: center;
+}
+header p{
+    text-align: center;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+body {
+   font-family: 'Press Start 2P', cursive;
+   color: white;
+   background-color: black;
+   background-image: url("../img/Abstract-colorful-fluid-background-on-transparent-PNG.png");
+}
+
+ul li {
+    list-style: square;
+}
+
+table tr {
+    padding: 10px;
+}
+table td {
+    padding: 10px;
+}
+
+a:hover{
+    color: #fff;
 }
