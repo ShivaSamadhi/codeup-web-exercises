@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Forms</title>
+</head>
+<body>
+<!--The method attribute of a form element refers to the HTTP method that should be used to transmit the form data.
+If no method is specified, by default, the GET method will be used.
+While other HTTP methods exist, the html specification limits us to using GET and POST in forms.
+
+*HTTP GETs* are used to request information, without making any changes to data on the server.
+When a form's method is set to GET, any of the data that the form sends will be appended to the url in the form of a query string.
+A query string is composed of key-value pairs. It begins with a question mark (?). Following the question mark, is the first key-value pair.
+Key-value pairs are structured as key=value. Key-value pairs after the first will be separated by ampersands (&).
+
+*HTTP POSTs* are used to make a change to existing data on the server.
+When a form's method is set to POST, any of the data that the form sends will not be added to the url,
+but will instead be embedded in the body of the HTTP request as key-value pairs.-->
+<form method="POST" action="https://request-inspector.glitch.me/">
+<!--The action attribute of an HTML form refers to the location that the form data should be sent.
+If no action is specified, by default, the action will be set to send data back to the current url.-->
+  <label for="username">Username</label>
+  <input id="username" name="username" type="text">
+    <!--Form inputs are what define the actual data that goes along with the form submission.
+    While there are several types of inputs a form can contain, they all share some common characteristics.
+
+    Basic text input element is an input element with a type of text.
+    Textarea elements can be used for longer text input. Unlike inputs, a textarea is not a void element.
+
+    Input elements with a type of either radio or checkbox. Multiple elements relating to the same question should share a name attribute.
+    Commonly placed inside label elements.
+
+    Select elements create a drop-down of choices. Consists of option elements for each choice.
+    The contents of an option element are what the user sees, and the value attribute is the data is submitted as part of the form.
+    The parent select element has a name attribute, and child option elements have value attributes.
+    -->
+  <br>
+
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password">
+  <!--In order for an input to be submitted, it must have a name attribute.
+  The value of the name attribute will become the name of the key that corresponds to the value of the current input.-->
+  <br>
+
+  <input type="submit">
+  <!--In order to submit a form, the form must contain either a button, or input element, with a type attribute whose value is "submit".-->
+  <!--Because inputs are void elements, using a button element will give us a little more flexibility with styling the form.-->
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With US</title>
+</head>
+<body>
+  <form method="POST" action="https://request-inspector.glitch.me/">
+      <label for="email"> User Email
+          <input id="email" name="email" type="email" placeholder="johndoe@veridian.com">
+      </label><br>
+      <label for="password">User Password
+          <input id="password" name="password" type="password" placeholder="password1234">
+      </label><br>
+      <label for="bio">Bio
+          <textarea id="bio" name="bio"></textarea>
+      </label>
+      <br>
+      <hr>
+      <label><strong>How Did You Hear About Us?</strong></label><br>
+        <label for="billboard">
+            Billboard <input type="radio" id="billboard" name="hear-about-us1" value="billboard">
+        </label><br>
+        <label for="radio-ad">
+            Radio ad <input type="radio" id="radio-ad" name="hear-about-us2" value="radio ad">
+        </label><br>
+        <label for="internet-ad">
+            Internet ad <input type="radio" id="internet-ad" name="hear-about-us3" value="internet ad">
+        </label><br>
+        <label for="other">
+            Other <input type="radio" id="other" name="hear-about-us4" value="other">
+        </label>
+      <br>
+      <hr>
+        <label for="browser"><strong>Browser Are You Using?</strong></label><br>
+        <select id="browser" name="browser">
+            <option value="chrome">Chrome</option>
+            <option value="safari">Safari</option>
+            <option value="internet-explorer">Internet Explorer</option>
+            <option value="firefox">Firefox</option>
+        </select><br>
+        <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
