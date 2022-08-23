@@ -1,0 +1,10 @@
+.name h1 {
+    font-size: 5rem;
+    font-weight: bold;
+}
+.subtitle h2 {
+    font-size: 3.5rem;
+}
+.contact{
+    margin: 0 auto;
+}
