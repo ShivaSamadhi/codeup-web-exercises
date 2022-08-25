@@ -14,6 +14,12 @@
     <li data-dbid="4">Item 4</li>
     <li data-dbid="5">Item 5</li>
 </ul>
+
+<button id="btn1">Main Header</button>
+<button id="btn2">Subheader</button>
+<button id="btn3">List Items</button>
+<button id="btn4">List Item 1</button>
+
 <h2 id="sub-header">Hello Again.</h2>
 <p class="sub-paragraph">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -29,26 +35,44 @@
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
-        var mainHeader = document.getElementById('main-header') ;
-
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = 'JavaScript is Cool'
+       let btn1 = function () {
+           var mainHeader = document.getElementById('main-header');
+           mainHeader.innerHTML = 'JavaScript is Cool';
+        }
+        document.getElementById('btn1').addEventListener('click', btn1)
+
+
 
         // TODO: Uncomment the next line and get the sub header element by id
-        var subHeader = document.getElementById('sub-header');
-
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = '#00f'
+
+        let btn2 = function () {
+            var subHeader = document.getElementById('sub-header');
+            subHeader.style.color = '#00f'
+        }
+
+        document.getElementById('btn2').addEventListener('click', btn2)
+
+
 
         // TODO: Uncomment the next line and get all list items
-        var listItems = document.getElementsByTagName('li');
-
         // TODO: Set text color on every other list item to grey
-        for (let i = 1; i < listItems.length; i += 2){
-            listItems[i].style.color = 'grey'
+        let btn3 = function () {
+            var listItems = document.getElementsByTagName('li');
+            for (let i = 1; i < listItems.length; i += 2){
+                listItems[i].style.color = 'grey'
+            }
         }
+        document.getElementById('btn3').addEventListener('click', btn3)
+        
         // TODO: Set text color of li with dbid = 1 to blue
-        listItems[0].style.color = '#00f'
+        let btn4 = function () {
+            var listItems = document.getElementsByTagName('li');
+            listItems[0].style.color = '#00f'
+        }
+
+        document.getElementById('btn4').addEventListener('click', btn4)
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
