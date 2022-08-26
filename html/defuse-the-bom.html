@@ -30,7 +30,9 @@
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
      function defuseTheBOM() {
-        clearInterval(detonation)
+        clearTimeout(detonation)
+        document.getElementById('message').innerHTML = "BOM has been defused successfully"
+        // document.body.innerHTML = ''
      }
 
     // Don't modify anything below this line!
