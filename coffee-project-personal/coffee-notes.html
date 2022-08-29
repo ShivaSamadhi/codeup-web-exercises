@@ -31,15 +31,47 @@
 
         </div>
         <div class="col w-50">
-            <form>
-                <label for="roast-selection"></label>
-                <select id="roast-selection">
-                    <option>light</option>
-                    <option>medium</option>
-                    <option>dark</option>
-                </select>
-                <input id="submit" type="submit" />
-            </form>
+
+            <div class="container border-bottom pb-3 mb-3">
+                <form>
+                    <div class="text-start input-group input-group-sm mb-3">
+                        <label class="w-100" for="roast-selection">Roast</label>
+                        <select class="form-select" id="roast-selection">
+                            <option>light</option>
+                            <option>medium</option>
+                            <option>dark</option>
+                        </select>
+                    </div>
+
+                    <div class="text-start input-group input-group-sm mb-3">
+                        <label class="w-100" for="coffee-name">Coffee Name</label>
+                        <input type="text" class="form-control" id="coffee-name" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <input class="btn btn-primary w-100" id="submit" type="submit" />
+                </form>
+            </div>
+
+            <div class="container">
+                <form>
+                    <div class="h1">Add a Coffee</div>
+                    <div class="text-start input-group input-group-sm mb-3">
+                        <label class="w-100" for="roast-selection">Roast</label>
+                        <select class="form-select" id="roast-selection">
+                            <option>light</option>
+                            <option>medium</option>
+                            <option>dark</option>
+                        </select>
+                    </div>
+
+                    <div class="text-start input-group input-group-sm mb-3">
+                        <label class="w-100" for="coffee-name">Coffee Name</label>
+                        <input type="text" class="form-control" id="coffee-name" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <input class="btn btn-primary w-100" id="submit" type="submit" />
+                </form>
+            </div>
         </div>
     </div>
 

@@ -2,14 +2,14 @@
 
 function renderCoffee(coffee) {
     var html = '<tr class="coffee">';
-    // html += '<td>' + coffee.id + '</td>';
+    html += '<td class="d-none">' + coffee.id + '</td>';
     html += '<td>' + coffee.name + '</td>';
     html += '<td>' + coffee.roast + '</td>';
     html += '</tr>';
 
     return html;
 }
-/*the renderCoffee() gives each keyvalue pair of a passed obj a <tr> <td> element so that they can be displayed within an HTML table*/
+/*the renderCoffee() gives each key-value pair of a passed obj a <tr> <td> element so that they can be displayed within an HTML table*/
 
 function renderCoffees(coffees) {
     var html = '';
@@ -23,15 +23,18 @@ function renderCoffees(coffees) {
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
+    var coffeeSearch = coffeeName.value.toLowerCase();
+    console.log(coffeeSearch)
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
+        if (coffee.roast === selectedRoast && coffee.name.toLowerCase().includes(coffeeSearch)) {
             filteredCoffees.push(coffee);
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
-/*This is the search function that allows us to select coffees based on their type of roast. This syntax might be useful for creating the name search functionality. updateCoffees() accesses the roast selection form and uses the selected option to run a forEach loop on the coffees arr. Any coffee with a matching roast is displayed via tbody.innerHTML*/
+
+/*This is the search function that allows us to select coffees based on their type of roast or a name that is passed in. This syntax might be useful for creating the name search functionality. updateCoffees() accesses the roast selection form and uses the selected option to run a forEach loop on the coffees arr. Any coffee with a matching roast is displayed via tbody.innerHTML*/
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -54,6 +57,7 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
+var coffeeName = document.querySelector('#coffee-name');
 
 tbody.innerHTML = renderCoffees(coffees);
 
