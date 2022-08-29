@@ -26,7 +26,7 @@
                     <th>ROAST</th>
                 </tr>
                 </thead>
-                <tbody id="coffees"></tbody>
+                <tbody class="text-start" id="coffees"></tbody>
             </table>
 
         </div>
@@ -37,6 +37,7 @@
                     <div class="text-start input-group input-group-sm mb-3">
                         <label class="w-100" for="roast-selection">Roast</label>
                         <select class="form-select" id="roast-selection">
+                            <option>all</option>
                             <option>light</option>
                             <option>medium</option>
                             <option>dark</option>
@@ -56,8 +57,8 @@
                 <form>
                     <div class="h1">Add a Coffee</div>
                     <div class="text-start input-group input-group-sm mb-3">
-                        <label class="w-100" for="roast-selection">Roast</label>
-                        <select class="form-select" id="roast-selection">
+                        <label class="w-100" for="roast-addition">Roast</label>
+                        <select class="form-select" id="roast-addition">
                             <option>light</option>
                             <option>medium</option>
                             <option>dark</option>
@@ -65,11 +66,11 @@
                     </div>
 
                     <div class="text-start input-group input-group-sm mb-3">
-                        <label class="w-100" for="coffee-name">Coffee Name</label>
-                        <input type="text" class="form-control" id="coffee-name" aria-label="Username" aria-describedby="basic-addon1">
+                        <label class="w-100" for="coffee-addition">Name</label>
+                        <input type="text" class="form-control" id="coffee-addition" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
 
-                    <input class="btn btn-primary w-100" id="submit" type="submit" />
+                    <input class="btn btn-primary w-100" id="add-coffee" type="submit" />
                 </form>
             </div>
         </div>
