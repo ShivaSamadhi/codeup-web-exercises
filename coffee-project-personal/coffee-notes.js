@@ -19,13 +19,6 @@ function renderCoffees(coffees) {
     return html;
 }
 
-// function allCoffees(coffees) {
-//     var html = '';
-//     for(var i = coffees.length - 1; i >= 0; i--) {
-//         html += renderCoffee(coffees[i]);
-//     }
-//     return html;
-// }
 /*The renderCoffees() runs a for-loop on the coffees array below. The information stored within each obj of the array is passed as a parameter of the renderCoffee() -see above- and then added to the html var. html is then returned to the tbody.innerHTML to be displayed on screen*/
 
 function updateCoffees(e) {
@@ -85,13 +78,10 @@ let coffeeName = document.querySelector('#coffee-name');
 let roastAdd = document.querySelector('#roast-addition');
 let coffeeAdd = document.querySelector('#coffee-addition');
 let addButton = document.querySelector('#add-coffee')
-let showAll = document.querySelector('#show-all')
-
 
 
 submitButton.addEventListener('click', updateCoffees);
 roastSelection.addEventListener('input', updateCoffees)
 coffeeName.addEventListener('input', updateCoffees)
 addButton.addEventListener('click', addCoffee)
-// showAll.addEventListener('input', allCoffees)
 tbody.innerHTML = renderCoffees(coffees);
