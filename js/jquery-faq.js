@@ -7,5 +7,7 @@ $(document).ready(function (){
     })
     $('dt').click(function () {
         $(this).css('background-color', "red")
+    }).on('dblclick', function () {
+        $(this).css('background-color', 'white')
     })
 });
