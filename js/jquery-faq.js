@@ -5,4 +5,7 @@ $(document).ready(function (){
         event.preventDefault();
         $("dd").toggleClass('invisible')
     })
+    $('dt').click(function () {
+        $(this).css('background-color', "red")
+    })
 });
