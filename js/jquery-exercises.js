@@ -3,19 +3,19 @@
 /*1. JavaScript provides the ability to natively determine if the window has finished loading using the window.onload event handler, but it waits until all images have finished downloading. We usually do not need the image files to be fully downloaded to begin manipulating DOM objects. Therefore, we can pass an anonymous handler function into the jQuery instance. Passing an anonymous function in $() will execute our code when the document is ready for JavaScript manipulation:*/
 $(function() {
     //1
-    alert( 'The DOM has finished loading!' );
-
-    let contents = $('#para').html();
-    alert(contents)
-
-    $('.codeup').css('border', '1px solid red');
-
-    $('li').css('font-size', '20px')
-
-    $('h1, p, li').css('background-color', 'yellow')
-
-    let header = $('h1').html()
-    alert(header)
+    // alert( 'The DOM has finished loading!' );
+    //
+    // let contents = $('#para').html();
+    // alert(contents)
+    //
+    // $('.codeup').css('border', '1px solid red');
+    //
+    // $('li').css('font-size', '20px')
+    //
+    // $('h1, p, li').css('background-color', 'yellow')
+    //
+    // let header = $('h1').html()
+    // alert(header)
     //2
     // let contents = $('#codeup').html();
     // alert(contents);
@@ -28,6 +28,26 @@ $(function() {
 
     //5
     // $('.important, p').css('background-color', '#FF0');
+
+    // $('#codeup').click(function() {
+    //     alert('h1 with id "codeup" was clicked');
+    // });
+
+    //EVENT LISTENERS
+    $('#codeup').click(function() {
+        $(this).css('background-color', '#FF0');
+    })
+    $('p').dblclick(function() {
+        $(this).css('font-size', '18px');
+    })
+    $('li').hover(
+        function() {
+            $(this).css('color', '#e32615');
+        },
+        function() {
+            $(this).css('color', '#030303');
+        }
+    );
 });
 
 
