@@ -6,14 +6,15 @@
 <body>
 <h1>Konami Code</h1>
 
-<!--<script src="/js/jquery.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <script>
     "use strict";
+
     let userCode = []
     let secretCode = [38,38, 40, 40, 37, 39, 37, 39, 66, 65, 13]
 
     $(document).keyup(function(event){
+
         console.log(event.keyCode);
         userCode.push(event.keyCode)
         userCode.splice(-secretCode.length -1, userCode.length - secretCode.length)
@@ -21,7 +22,7 @@
 
         if(userCode.join('').includes(secretCode.join(''))) {
             alert('You have added 30 lives')
-            $('body').css('background-image', 'url(../img/pngwing.com.png)', )
+            $('body').css('background-image', 'url(../img/pngwing.com.png)' )
         }
     });
 </script>
