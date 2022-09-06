@@ -1,3 +1,9 @@
 .invisible{
     visibility: hidden;
 }
+.answer{
+    margin-bottom: 1em;
+}
+dt{
+    font-weight: bold;
+}
