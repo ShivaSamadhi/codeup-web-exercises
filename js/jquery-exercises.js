@@ -48,6 +48,12 @@ $(function() {
             $(this).css('color', '#030303');
         }
     );
+    // $('#textfield').keydown(function() {
+    //     alert('A key was pushed down!');
+    // });
+    $('#textfield').keyup(function() {
+        alert('A key was released!');
+    });
 });
 
 
