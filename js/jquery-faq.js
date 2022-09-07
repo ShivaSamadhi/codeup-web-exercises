@@ -12,16 +12,17 @@ $(document).ready(function (){
     }).on('dblclick', function () {
         $(this).css('background-color', 'transparent')
     });
-    $('dt, dd').addClass('h5')
+
+    $('dt, dd').addClass('h5');
 
     $('.color-change').click(function () {
         $('.bg-change').children().css('background-color', 'goldenrod')
     }).on('dblclick', function () {
-        $('ul').children().css('background-color', 'white')
+        $('ul').children().css('background-color', 'transparent')
     })
     
     $('.np-name').on('click', function () {
-        $(this).next().children().css('font-weight', 'bold')
+        $(this).next().children().css('font-weight', 'bolder')
     }).on('dblclick', function () {
         $(this).next().children().css('font-weight', 'normal')
     })
@@ -29,7 +30,7 @@ $(document).ready(function (){
     $('li').on('click', function () {
         $(this).parent().children().first().css('color', 'blue')
     }).on('dblclick', function () {
-        $(this).parent().children().first().css('color', 'black')
+        $(this).parent().children().first().css('color', 'white')
     })
     
     $('.link-1').on('click', function (event) {
