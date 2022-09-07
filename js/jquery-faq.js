@@ -10,11 +10,12 @@ $(document).ready(function (){
     $('dt').click(function () {
         $(this).css('background-color', "red")
     }).on('dblclick', function () {
-        $(this).css('background-color', 'white')
+        $(this).css('background-color', 'transparent')
     });
+    $('dt').addClass('h3')
 
     $('.color-change').click(function () {
-        $('ul').children().css('background-color', 'goldenrod')
+        $('.bg-change').children().css('background-color', 'goldenrod')
     }).on('dblclick', function () {
         $('ul').children().css('background-color', 'white')
     })
@@ -29,5 +30,18 @@ $(document).ready(function (){
         $(this).parent().children().first().css('color', 'blue')
     }).on('dblclick', function () {
         $(this).parent().children().first().css('color', 'black')
+    })
+    
+    $('.link-1').on('click', function (event) {
+        event.preventDefault();
+        $("#everglades").toggleClass('d-none')
+    })
+    $('.link-2').on('click', function (event) {
+        event.preventDefault();
+        $("#big-bend").toggleClass('d-none')
+    })
+    $('.link-3').on('click', function (event) {
+        event.preventDefault();
+        $("#death-valley").toggleClass('d-none')
     })
 });
