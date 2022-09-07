@@ -1,6 +1,6 @@
 "use strict"
 $(document).ready(function (){
-    $('dd').addClass('invisible');
+    // $('dd').addClass('invisible');
 
     $("#toggle").click(function(event) {
         event.preventDefault();
