@@ -12,7 +12,7 @@ $(document).ready(function (){
     }).on('dblclick', function () {
         $(this).css('background-color', 'transparent')
     });
-    $('dt').addClass('h3')
+    $('dt, dd').addClass('h5')
 
     $('.color-change').click(function () {
         $('.bg-change').children().css('background-color', 'goldenrod')
