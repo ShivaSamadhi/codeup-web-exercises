@@ -8,3 +8,10 @@
 .font-2{
     font-family: 'Comfortaa', cursive;
 }
+
+body {
+    background-image:  url('../img/sunset-at-the-ocean-wallpaper-1920x1080-wallpaper.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
