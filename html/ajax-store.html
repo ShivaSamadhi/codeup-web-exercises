@@ -32,27 +32,52 @@
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
     const local = "../data/inventory.json"
-    $.get(local).done(function(tools) {
-        tools.forEach(tool => {
-            $('#insertProducts').append(
-                `<tr class="table-row">
-                    <th scope="row">${tool.title}</th>
-                    <td>${tool.quantity}</td>
-                    <td>${tool.price}</td>
-                    <td>${tool.categories}</td>
-                 </tr>`)
-        })
-        console.log(tools);
-    })
 
+    // function appendElem() {
+    //     $.get(local).done(function (tools) {
+    //         tools.forEach(tool => {
+    //             $('#insertProducts').append(
+    //                 `<tr class="table-row">
+    //                     <th scope="row">${tool.title}</th>
+    //                     <td>${tool.quantity}</td>
+    //                     <td>${tool.price}</td>
+    //                     <td>${tool.categories}</td>
+    //                  </tr>`)
+    //         })
+    //         console.log(tools);
+    //     })
+    // }
+    // appendElem()
+    //
     $('#btn').on('click', function () {
-        location.reload(true)
+        update()
         })
-    // TODO: Take the data from inventory.json and append it to the products table
 
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
+    function update() {
+        $.get(local).done(function(tools) {
+            let toolsHTML = appendElem(tools); // create HTML string
+            $('#insertProducts').html(toolsHTML); // update the DOM with the new HTML
+        }).fail(function(jqXhr, status, error) {
+            console.log(jqXhr);
+            console.log(status);
+            console.log(error);
+        });
+    }
+    update();
+    //update() makes the ajax request, when done it takes the returned tools obj and runs it thru the appendElem() -defined below- stores it in the toolsHTML var. this is then injected into the html using jquery selectors.
+    function appendElem(tools) {
+        let html = ``
+        tools.forEach(tool => {
+                           html += `<tr class="table-row">
+                                <th scope="row">${tool.title}</th>
+                                <td>${tool.quantity}</td>
+                                <td>${tool.price}</td>
+                                <td>${tool.categories}</td>
+                             </tr>`
+              })
+        return html
+    }
+    //appendElem() creates the var html that sores an empty string. Then a forEach loop is used to place the properties of the tools obj within html tags. These tags are added to the html var for each tool in the object then the html var is returned
 })();
 </script>
 
