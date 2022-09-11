@@ -23,6 +23,7 @@
 
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
 <script src="../js/keys.js"></script>
 <!-- Custom JS -->
 <script>
@@ -33,6 +34,14 @@
         zoom: 10,
         center: [-98.4916, 29.4252]
     });
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-98.4916, 29.4260])
+        .addTo(map);
+    var alamoPopup = new mapboxgl.Popup()
+        .setHTML("<p>Remember The Alamo!</p>")
+
+    marker.setPopup(alamoPopup)
+
 </script>
 </body>
 </html>
