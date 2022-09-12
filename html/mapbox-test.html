@@ -13,6 +13,7 @@
             height: 700px;
         }
     </style>
+
 </head>
 <body>
 
@@ -23,24 +24,67 @@
 
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
+<script src="../js/mapbox-geocoder-utils.js"></script>
 <script src="../js/keys.js"></script>
 <!-- Custom JS -->
 <script>
-    mapboxgl.accessToken = MAPBOX_TOKEN;
+    // mapboxgl.accessToken = MAPBOX_TOKEN;
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/streets-v9',
+    //     zoom: 10,
+    //     center: [-98.4916, 29.4252]
+    // });
+
+    // var marker = new mapboxgl.Marker()
+    //     .setLngLat([-98.4916, 29.4260])
+    //     .addTo(map);
+    // var alamoPopup = new mapboxgl.Popup()
+    //     .setHTML("<p>Remember The Alamo!</p>")
+    //
+    // marker.setPopup(alamoPopup)
+
+    var accessToken = MAPBOX_TOKEN;
+
+    mapboxgl.accessToken = accessToken;
+
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
-        center: [-98.4916, 29.4252]
+        // center: [-98.4916, 29.4252]
     });
-    var marker = new mapboxgl.Marker()
-        .setLngLat([-98.4916, 29.4260])
-        .addTo(map);
-    var alamoPopup = new mapboxgl.Popup()
-        .setHTML("<p>Remember The Alamo!</p>")
 
-    marker.setPopup(alamoPopup)
+    var alamoInfo = {
+        address: "The Alamo",
+        popupHTML: "<p>Remember the Alamo!</p>",
+        coordinates: [-98.4916, 29.4252]
+    };
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(info.address, token).then(function(coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(info.popupHTML);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(info.coordinates)
+                .addTo(map)
+                .setPopup(popup);
+                popup.addTo(map);
+        });
+    }
+
+    placeMarkerAndPopup(alamoInfo, accessToken, map);
+
+    reverseGeocode({lng: -98.4861, lat: 29.4260}, MAPBOX_TOKEN).then(function(results) {
+        // logs the address for The Alamo
+        console.log(results);
+    });
+
+    geocode("The Alamo", accessToken).then(function(result) {
+        console.log(result);
+        // map.setCenter(result);
+        // map.setZoom(20);
+    });
 
 </script>
 </body>
