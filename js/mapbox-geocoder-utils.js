@@ -10,11 +10,11 @@ var map = new mapboxgl.Map({
 
 let restaurants = [
     {
-        name: 'Uchi',
-        address: '2817 Maple Ave, Dallas, Texas 75201, United States',
+        name: `Uchi`,
+        address: `2817 Maple Ave, Dallas, Texas 75201, United States`,
         coordinates: [-96.806492, 32.79706],
-        cuisine: 'Sushi/Japanese',
-        description: 'Located in the Arts District, the third location of Uchi made its debut in 2015. Melding the best offerings of Chef Tyson Cole’s first three restaurants (Uchi Austin, Uchiko, and Uchi Houston).'
+        cuisine: `Sushi/Japanese`,
+        description: `Located in the Arts District, the third location of Uchi made its debut in 2015. Melding the best offerings of Chef Tyson Cole’s first three restaurants (Uchi Austin, Uchiko, and Uchi Houston).`
     },
     {
         name:`Ricky's Hot Chicken`,
