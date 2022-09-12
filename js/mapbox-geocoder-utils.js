@@ -63,17 +63,39 @@ restaurants.forEach((restaurant) => {
         .setPopup(popup)
         popup.addTo(map)
 })
+
+function renderLngLat(coordinates) {
+    $('#lnglat').html(`
+    <h5 class="m-3">Longitude: ${coordinates.lng.toFixed(3)}</h5>
+    <br>
+    <h5 class="m-3">Latitude: ${coordinates.lat.toFixed(3)}</h5>
+    `)
+}
+
 $('#search-btn').click(() => {
     const search = $('#search-input').val()
     console.log(search)
     geocode(search, mapboxgl.accessToken).then((location) => {
         map.setCenter(location)
         map.setZoom(9)
-        new mapboxgl.Marker()
+       let marker = new mapboxgl.Marker({
+           draggable: true
+       })
             .setLngLat([location[0],location[1]])
             .addTo(map)
+           let coordinates = marker.getLngLat()
+            renderLngLat(coordinates)
+
+        marker.on('dragend',() => {
+            coordinates = marker.getLngLat();
+            renderLngLat(coordinates)
+        })
     })
 })
+
+
+
+
 /***
  * geocode is a method to search for coordinates based on a physical address and return
  * @param {string} search is the address to search for the geocoded coordinates
@@ -125,3 +147,8 @@ function reverseGeocode(coordinates, token) {
             return data.features[0].place_name;
         });
 }
+
+// geocode("Paris, Texas", MAPBOX_TOKEN).then(function(data) {
+//     console.log(data);
+//     map.setCenter(data);
+// })
