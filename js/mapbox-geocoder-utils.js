@@ -1,5 +1,5 @@
 "use strict";
-
+let weatherAPI = "http://api.openweathermap.org/data/2.5/forecast"
 mapboxgl.accessToken = MAPBOX_TOKEN;
 var map = new mapboxgl.Map({
     container: 'map',
@@ -76,23 +76,17 @@ $('#search-btn').click(() => {
     const search = $('#search-input').val()
     console.log(search)
     geocode(search, mapboxgl.accessToken).then((location) => {
+        console.log(location)
         map.setCenter(location)
         map.setZoom(9)
-       let marker = new mapboxgl.Marker({
-           draggable: true
-       })
+       let marker = new mapboxgl.Marker()
             .setLngLat([location[0],location[1]])
             .addTo(map)
            let coordinates = marker.getLngLat()
             renderLngLat(coordinates)
 
-        marker.on('dragend',() => {
-            coordinates = marker.getLngLat();
-            renderLngLat(coordinates)
-        })
     })
 })
-
 
 
 
@@ -152,3 +146,38 @@ function reverseGeocode(coordinates, token) {
 //     console.log(data);
 //     map.setCenter(data);
 // })
+
+//SEARCH
+$('#search-btn').click(() => {
+    const search = $('#search-input').val()
+    console.log(search)
+    geocode(search, mapboxgl.accessToken).then((location) => {
+        console.log(location)
+        map.setCenter(location)
+        map.setZoom(9)
+
+        let marker = new mapboxgl.Marker()
+            .setLngLat([location[0],location[1]])
+            .addTo(map)
+
+        ajaxCall([location[0],location[1]])
+    })
+})
+
+//AJAX CALL FUNCTION
+let forecasts = []
+
+let ajaxCall = (arr) => {
+    $.get(weatherAPI, {
+        APPID: OPEN_WEATHER_APPID,
+        lat: arr[1],
+        lon: arr[0],
+        units: "imperial"
+    }).done(function (data) {
+        for (let i = 0; i < data.list.length; i += 8) {
+            forecasts.push(data.list[i])
+        }
+        console.log(forecasts)
+
+    })
+}
