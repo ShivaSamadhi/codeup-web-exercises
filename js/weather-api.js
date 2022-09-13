@@ -57,12 +57,20 @@ let ajaxCall = (arr) => {
 function append(data) {
     let html = ``
        for  (let i = 0; i < data.length; i += 8){
-           const {dt_text, main: {humidity, temp, temp_max, temp_min}, weather: [{description, icon}]} = data[i]
-           html += `<div class="card" style="width: 19%;">
-<!--          <img src="..." class="card-img-top" alt="...">-->
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+           console.log(data[i])
+           const {dt_txt, main: {humidity, temp, temp_max, temp_min}, weather: [{description, icon}], wind: {speed}} = data[i]
+           html += `
+            <div class="card" style="width: 19%;">
+               <h5 class="card-header text-center">${dt_txt.substring(5,7)}.${dt_txt.substring(8,10)}.${dt_txt.substring(0,4)}
+               </h5>
+               <img src='http://openweathermap.org/img/w/${icon}.png' class="img-thumbnail mx-auto d-block border-0" style='width: 100px; height: 100px;' alt="...">
+              <div class="card-body pt-0">
+              <h3 class="card-title text-center">${temp.toFixed(1)}ºF</h3>
+                <div class="d-flex justify-content-between">
+                <h6 class="card-text mb-0 text-danger">H: ${temp_max.toFixed(1)}ºF</h6>
+                <h6 class="card-text mb-0 text-primary">L: ${temp_min.toFixed(1)}ºF</h6>
+                </div>
+            
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">An item</li>
