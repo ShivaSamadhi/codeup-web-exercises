@@ -61,7 +61,7 @@ let append = (data) => {
            const {dt_txt, main: {humidity, temp, temp_max, temp_min}, weather: [{description, icon}], wind: {speed}} = data[i]
            html += `
             <div class="card bg-dark border-light" style="width: 20%;">
-               <h5 class="card-header text-center text-light opacity-75">${dt_txt.substring(5,7)}.${dt_txt.substring(8,10)}.${dt_txt.substring(0,4)}
+               <h5 class="card-header text-center bg-secondary text-light opacity-75 mb-2">${dt_txt.substring(5,7)}.${dt_txt.substring(8,10)}.${dt_txt.substring(0,4)}
                </h5>
                <img src='http://openweathermap.org/img/w/${icon}.png' class="img-thumbnail mx-auto d-block border-0" style='width: 100px; height: 100px;' alt="...">
               <div class="card-body pt-0">
@@ -78,7 +78,7 @@ let append = (data) => {
                 <li class="list-group-item bg-dark text-light">Wind: ${speed} mph</li>
               </ul>
               <div class="card-body p-0 text-center">
-              <h6 class="list-group-item bg-dark text-light">${description.toUpperCase()}</h6>
+              <h6 class="list-group-item bg-secondary text-light mb-0">${description.toUpperCase()}</h6>
               </div>
             </div>`}
     return html
