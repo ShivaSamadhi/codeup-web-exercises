@@ -79,12 +79,14 @@ $('#search-btn').click(() => {
         console.log(location)
         map.setCenter(location)
         map.setZoom(9)
-       let marker = new mapboxgl.Marker()
-            .setLngLat([location[0],location[1]])
-            .addTo(map)
+       let marker = new mapboxgl.Marker({draggable: true})
+
            let coordinates = marker.getLngLat()
             renderLngLat(coordinates)
-
+            marker.on('dragend', () => {
+                    coordinates = marker.getLngLat();
+                    renderLngLat(coordinates)
+                })
     })
 })
 

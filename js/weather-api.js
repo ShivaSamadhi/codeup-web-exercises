@@ -29,12 +29,18 @@ $('#search-btn').click(() => {
         map.setCenter(location)
         map.setZoom(9)
 
-        let marker = new mapboxgl.Marker()
+        let marker = new mapboxgl.Marker({draggable: true})
             .setLngLat([location[0],location[1]])
             .addTo(map)
 
-        ajaxCall(location)
+        let coordinates = marker.getLngLat()
+        marker.on('dragend', () => {
+            coordinates = marker.getLngLat();
+            revGeo(coordinates[0],coordinates[1])
+        })
 
+        ajaxCall(location)
+        revGeo(location[0], location[1])
     })
 
 })
@@ -54,7 +60,7 @@ let ajaxCall = (arr) => {
     })
 }
 
-function append(data) {
+let append = (data) => {
     let html = ``
        for  (let i = 0; i < data.length; i += 8){
            console.log(data[i])
@@ -85,7 +91,13 @@ function append(data) {
     return html
     }
 
-// (let i = 0; i < forecasts.length; i++){
+let revGeo = (lng, lat) => {
+    reverseGeocode({lng, lat}, MAPBOX_TOKEN).then(function(results){
+        console.log(results)
+        $('#city').text(`Current Location: ${results}`)
+
+    })
+}
 
 function geocode(search, token) {
         var baseUrl = 'https://api.mapbox.com';
@@ -108,6 +120,8 @@ function reverseGeocode(coordinates, token) {
         })
         // to get all the data from the request, comment out the following three lines...
         .then(function(data) {
-            return data.features[0].place_name;
+            let city
+            return data.features[0].place_name
+                // .context[2].text;
         });
 }
