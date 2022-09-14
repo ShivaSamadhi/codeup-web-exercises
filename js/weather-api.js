@@ -27,12 +27,11 @@ $('#search-btn').click(() => {
     geocode(search, mapboxgl.accessToken).then((location) => {
         console.log(location)
         map.setCenter(location)
-        map.setZoom(9)
+        map.setZoom(11)
 
         let marker = new mapboxgl.Marker()
             .setLngLat([location[0],location[1]])
             .addTo(map)
-
 
         ajaxCall(location)
         revGeo(location[0], location[1])
@@ -61,8 +60,8 @@ let append = (data) => {
            console.log(data[i])
            const {dt_txt, main: {humidity, temp, temp_max, temp_min}, weather: [{description, icon}], wind: {speed}} = data[i]
            html += `
-            <div class="card" style="width: 19%;">
-               <h5 class="card-header text-center">${dt_txt.substring(5,7)}.${dt_txt.substring(8,10)}.${dt_txt.substring(0,4)}
+            <div class="card bg-dark border-light" style="width: 19%;">
+               <h5 class="card-header text-center text-light opacity-75">${dt_txt.substring(5,7)}.${dt_txt.substring(8,10)}.${dt_txt.substring(0,4)}
                </h5>
                <img src='http://openweathermap.org/img/w/${icon}.png' class="img-thumbnail mx-auto d-block border-0" style='width: 100px; height: 100px;' alt="...">
               <div class="card-body pt-0">
@@ -74,9 +73,9 @@ let append = (data) => {
             
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <li class="list-group-item bg-dark text-light">${description.toUpperCase()}</li>
+                <li class="list-group-item">Humidity: ${humidity}</li>
+                <li class="list-group-item">Wind: ${speed}</li>
               </ul>
               <div class="card-body">
                 <a href="#" class="card-link">Card link</a>
@@ -89,7 +88,7 @@ let append = (data) => {
 let revGeo = (lng, lat) => {
     reverseGeocode({lng, lat}, MAPBOX_TOKEN).then(function(results){
         console.log(results)
-        $('#city').text(`Current Location: ${results}`)
+        $('#city').text(`${results}`)
 
     })
 }
