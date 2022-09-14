@@ -1,16 +1,18 @@
 "use strict";
+//WEATHER API
 let weatherAPI = "http://api.openweathermap.org/data/2.5/forecast"
 
+//MAPBOX API
 mapboxgl.accessToken = MAPBOX_TOKEN;
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    zoom: 10,
+    zoom: 8,
     center: [-96.796856, 32.776272]
 });
 
 
-//nav & search controls
+//MAPBOX NAV CONTROLS
 map.addControl(
     new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
@@ -20,7 +22,7 @@ map.addControl(
 map.addControl(new mapboxgl.NavigationControl())
 
 
-
+//SEARCH BAR FUNCTION
 $('#search-btn').click(() => {
     const search = $('#search-input').val()
     console.log(search)
@@ -39,6 +41,7 @@ $('#search-btn').click(() => {
 
 })
 
+//WEATHER API AJAX CALL FUNCTION
 let ajaxCall = (arr) => {
     $.get(weatherAPI, {
         APPID: OPEN_WEATHER_APPID,
@@ -54,6 +57,7 @@ let ajaxCall = (arr) => {
     })
 }
 
+//5DAY FORECAST HTML FUNCTION
 let append = (data) => {
     let html = ``
        for  (let i = 0; i < data.length; i += 8){
@@ -84,6 +88,7 @@ let append = (data) => {
     return html
     }
 
+//REV-GEO LOCATION DISPLAY FUNCTION
 let revGeo = (lng, lat) => {
     reverseGeocode({lng, lat}, MAPBOX_TOKEN).then(function(results){
         console.log(results)
@@ -92,6 +97,7 @@ let revGeo = (lng, lat) => {
     })
 }
 
+//MAPBOX (REVERSE) GEOCODER FUNCTIONS
 function geocode(search, token) {
         var baseUrl = 'https://api.mapbox.com';
         var endPoint = '/geocoding/v5/mapbox.places/';
