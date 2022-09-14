@@ -19,7 +19,7 @@ map.addControl(
 );
 map.addControl(new mapboxgl.NavigationControl())
 
-// let forecasts = []
+
 
 $('#search-btn').click(() => {
     const search = $('#search-input').val()
