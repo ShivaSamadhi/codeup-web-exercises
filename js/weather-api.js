@@ -29,15 +29,10 @@ $('#search-btn').click(() => {
         map.setCenter(location)
         map.setZoom(9)
 
-        let marker = new mapboxgl.Marker({draggable: true})
+        let marker = new mapboxgl.Marker()
             .setLngLat([location[0],location[1]])
             .addTo(map)
 
-        let coordinates = marker.getLngLat()
-        marker.on('dragend', () => {
-            coordinates = marker.getLngLat();
-            revGeo(coordinates[0],coordinates[1])
-        })
 
         ajaxCall(location)
         revGeo(location[0], location[1])
