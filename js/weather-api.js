@@ -60,7 +60,7 @@ let append = (data) => {
            console.log(data[i])
            const {dt_txt, main: {humidity, temp, temp_max, temp_min}, weather: [{description, icon}], wind: {speed}} = data[i]
            html += `
-            <div class="card bg-dark border-light" style="width: 19%;">
+            <div class="card bg-dark border-light" style="width: 20%;">
                <h5 class="card-header text-center text-light opacity-75">${dt_txt.substring(5,7)}.${dt_txt.substring(8,10)}.${dt_txt.substring(0,4)}
                </h5>
                <img src='http://openweathermap.org/img/w/${icon}.png' class="img-thumbnail mx-auto d-block border-0" style='width: 100px; height: 100px;' alt="...">
@@ -72,14 +72,13 @@ let append = (data) => {
                 </div>
             
               </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-dark text-light">${description.toUpperCase()}</li>
-                <li class="list-group-item">Humidity: ${humidity}</li>
-                <li class="list-group-item">Wind: ${speed}</li>
+              <ul class="list-group list-group-flush text-center">
+                
+                <li class="list-group-item bg-dark text-light">Humidity: ${humidity}%</li>
+                <li class="list-group-item bg-dark text-light">Wind: ${speed} mph</li>
               </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+              <div class="card-body p-0 text-center">
+              <h6 class="list-group-item bg-dark text-light">${description.toUpperCase()}</h6>
               </div>
             </div>`}
     return html
