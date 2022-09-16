@@ -62,18 +62,22 @@ let longEmail = users.reduce((arr, {email})=>{
 let allNames = users.reduce((str, {name})=>{
 
     str.push(`${name}`)
-    console.log(str)
+    // console.log(str)
     return str
 
-    // arr2.push(name);
-    // let nameStr = arr2.join(', ')
 
 },[])
 let instructors = (arr) =>{
     let names = arr.join(', ')
     return `Your instructors are: ${names}.`
 }
-console.log(instructors(allNames))
-console.log(avg(experience))
-console.log(experience)
-console.log(longEmail)
+let uniqueList = users.reduce((unique, {languages}) => {
+    const uniqueArr = [new Set(languages)]
+    console.log(uniqueArr)
+}, [])
+
+
+// console.log(instructors(allNames))
+// console.log(avg(experience))
+// console.log(experience)
+// console.log(longEmail)
