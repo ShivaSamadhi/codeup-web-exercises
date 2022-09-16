@@ -50,6 +50,7 @@ let avg = (total) => {
     let length = users.length
     return total/length
 }
+
 let longEmail = users.reduce((arr, {email})=>{
     arr.push(email);
     let max = arr[0].length;
@@ -57,6 +58,22 @@ let longEmail = users.reduce((arr, {email})=>{
     let str = arr.filter(item => item.length == max);
     return str;
 },[])
+
+let allNames = users.reduce((str, {name})=>{
+
+    str.push(`${name}`)
+    console.log(str)
+    return str
+
+    // arr2.push(name);
+    // let nameStr = arr2.join(', ')
+
+},[])
+let instructors = (arr) =>{
+    let names = arr.join(', ')
+    return `Your instructors are: ${names}.`
+}
+console.log(instructors(allNames))
 console.log(avg(experience))
 console.log(experience)
 console.log(longEmail)
