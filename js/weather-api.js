@@ -11,7 +11,6 @@ var map = new mapboxgl.Map({
     center: [-96.796856, 32.776272]
 });
 
-
 //MAPBOX NAV CONTROLS
 map.addControl(
     new MapboxGeocoder({
@@ -20,7 +19,6 @@ map.addControl(
     })
 );
 map.addControl(new mapboxgl.NavigationControl())
-
 
 //SEARCH BAR FUNCTION
 $('#search-btn').click(() => {
@@ -81,8 +79,8 @@ let append = (data) => {
                 <li class="list-group-item bg-dark text-light">Humidity: ${humidity}%</li>
                 <li class="list-group-item bg-dark text-light">Wind: ${speed} mph</li>
               </ul>
-              <div class="card-body p-0 text-center">
-              <h6 class="list-group-item bg-secondary text-light mb-0">${description.toUpperCase()}</h6>
+              <div class="card-body p-0 ">
+              <p class="list-group-item bg-secondary text-light text-center p-0 m-0">${description.toUpperCase()}</p>
               </div>
             </div>`}
     return html
