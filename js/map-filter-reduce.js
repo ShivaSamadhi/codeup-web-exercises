@@ -36,20 +36,15 @@ const users = [
     }
 ];
 
-let multiLang = users.filter(user => user.languages.length >= 3)
+let multiLang = users.filter(({languages}) => languages.length >= 3)
 console.log(multiLang)
 
 let emails = users.map(({email}) => email)
 console.log(emails)
 
-let experience = users.reduce((total,{yearsOfExperience})=>{
-    return (total + yearsOfExperience)
-}, 0)
+let experience = (users.reduce((total,{yearsOfExperience}) => total + yearsOfExperience, 0)/(users.length))
+console.log(experience)
 
-let avg = (total) => {
-    let length = users.length
-    return total/length
-}
 
 let longEmail = users.reduce((arr, {email})=>{
     arr.push(email);
@@ -60,24 +55,22 @@ let longEmail = users.reduce((arr, {email})=>{
 },[])
 
 let allNames = users.reduce((str, {name})=>{
-
-    str.push(`${name}`)
-    // console.log(str)
+    str.push(name)
     return str
-
-
-},[])
-let instructors = (arr) =>{
-    let names = arr.join(', ')
-    return `Your instructors are: ${names}.`
+},[]).join(', ')
+let instructors = (str) =>{
+    return `Your instructors are: ${str}.`
 }
-let uniqueList = users.reduce((unique, {languages}) => {
-    const uniqueArr = [new Set(languages)]
-    console.log(uniqueArr)
-}, [])
 
 
-// console.log(instructors(allNames))
-// console.log(avg(experience))
-// console.log(experience)
-// console.log(longEmail)
+console.log(instructors(allNames))
+console.log(experience)
+console.log(longEmail)
+
+const languages = users
+                    .reduce((previousValue, currentValue) =>
+                        [...previousValue,...currentValue.languages],[])
+                    .reduce((unique, curr) =>
+                        !unique.includes(curr) ? [...unique, curr] : [...unique],[])
+
+console.log(languages)
