@@ -55,8 +55,41 @@ const sum = (...args) => {
 }
 
 const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
-let arr2;
-
-arr2 = [...arr1];
-
+let arr2 = [...arr1];
 console.log(arr2);
+
+//DESTRUCTURING OBJECTS
+const HIGH_TEMPERATURES = {
+    yesterday: 75,
+    today: 77,
+    tomorrow: 80
+};
+
+const {today} = HIGH_TEMPERATURES;
+const {tomorrow} = HIGH_TEMPERATURES;
+const {today: highToday} = HIGH_TEMPERATURES;
+const {tomorrow: highTmrw} = HIGH_TEMPERATURES;
+
+const LOCAL_FORECAST = {
+    yesterday: { low: 61, high: 75 },
+    today: { low: 64, high: 77 },
+    tomorrow: { low: 68, high: 80 }
+};
+
+const {today: {low: lowToday}} = LOCAL_FORECAST;
+const {today: {high: highToday}} = LOCAL_FORECAST;
+
+//DESTRUCTURING ARRAYS
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, c);
+
+let a = 8, b = 6;
+[a, b] = [b, a]
+
+const source = [1,2,3,4,5,6,7,8,9,10];
+const removeFirstTwo = (list) => {
+    const [a,b,...arr] = list;
+    return arr;
+}
+const arr = removeFirstTwo(source);
+
