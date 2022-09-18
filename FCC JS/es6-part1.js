@@ -48,3 +48,15 @@ console.log(myConcat([1, 2], [3, 4, 5]))
 
 //DEFAULT PARAMETERS
 const increment = (number, value = 1) => number + value;
+
+//SPREAD OPERATOR
+const sum = (...args) => {
+    return args.reduce((a, b) => a + b, 0);
+}
+
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+
+arr2 = [...arr1];
+
+console.log(arr2);
