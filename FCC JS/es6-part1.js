@@ -79,6 +79,23 @@ const LOCAL_FORECAST = {
 const {today: {low: lowToday}} = LOCAL_FORECAST;
 const {today: {high: highToday}} = LOCAL_FORECAST;
 
+const stats = {
+    max: 56.78,
+    standard_deviation: 4.34,
+    median: 34.54,
+    mode: 23.87,
+    min: -0.75,
+    average: 35.85
+};
+
+const half = ({max, min}) => (max + min) / 2.0;
+
+const createPerson = (name, age, gender) => ({
+    name,
+    age,
+    gender
+});
+
 //DESTRUCTURING ARRAYS
 const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
 console.log(a, b, c);
@@ -92,4 +109,27 @@ const removeFirstTwo = (list) => {
     return arr;
 }
 const arr = removeFirstTwo(source);
+
+//TEMPLATE LITERALS
+const result = {
+    success: ["max-length", "no-amd", "prefer-arrow-functions"],
+    failure: ["no-var", "var-on-top", "linebreak"],
+    skipped: ["no-extra-semi", "no-dup-keys"]
+};
+function makeList(arr) {
+    "use strict";
+    const failureItems = arr.map(item => `<li class="text-warning">${item}</li>`);
+    return failureItems;
+}
+const failuresList = makeList(result.failure);
+
+//DECLARATIVE FUNCTIONS
+const bicycle = {
+    gear: 2,
+    setGear(newGear) {
+        this.gear = newGear;
+    }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
 
