@@ -76,8 +76,8 @@ const LOCAL_FORECAST = {
     tomorrow: { low: 68, high: 80 }
 };
 
-const {today: {low: lowToday}} = LOCAL_FORECAST;
-const {today: {high: highToday}} = LOCAL_FORECAST;
+const {today: {low: lowTod}} = LOCAL_FORECAST;
+const {today: {high: highTod}} = LOCAL_FORECAST;
 
 const stats = {
     max: 56.78,
@@ -100,8 +100,8 @@ const createPerson = (name, age, gender) => ({
 const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
 console.log(a, b, c);
 
-let a = 8, b = 6;
-[a, b] = [b, a]
+// let a = 8, b = 6;
+// [a, b] = [b, a]
 
 const source = [1,2,3,4,5,6,7,8,9,10];
 const removeFirstTwo = (list) => {
@@ -142,7 +142,46 @@ class Vegetable {
 const carrot = new Vegetable('carrot');
 console.log(carrot.name);
 
-//Promises
+//OBJECT GET/SET
+class Book {
+    constructor(author) {
+        this._author = author;
+    }
+    // getter
+    get writer() {
+        return this._author;
+    }
+    // setter
+    set writer(updatedAuthor) {
+        this._author = updatedAuthor;
+    }
+}
+const novel = new Book('dog');
+console.log(novel.writer);
+novel.writer = 'newAuthor';
+console.log(novel.writer);
+
+class Thermostat {
+    constructor(temperature){
+        this.temperature = temperature
+    }
+    get temp(){
+        return 5/9 * (this.temperature - 32)
+    }
+    set temp(celsius){
+        this.temperature = (celsius * 9.0) / 5 + 32;
+    }
+}
+
+const thermos = new Thermostat(76);
+let temp = thermos.temperature;
+console.log(temp)
+thermos.temp = 26;
+temp = thermos.temperature;
+console.log(temp)
+
+
+//PROMISES
 fetch('https://api.github.com/users')
     .then(response => console.log(response))
     .catch(error => console.error(error))
@@ -209,3 +248,21 @@ console.log(myPromise2); // a pending promise
 
 myPromise2.then(() => console.log('resolved!'));
 myPromise2.catch(() => console.log('rejected!'));
+
+//MODULE SCRIPT (HTML)
+// <script type="module" src="index.js"></script>
+
+const uppercaseString = (string) => {
+    return string.toUpperCase();
+}
+
+const lowercaseString = (string) => {
+    return string.toLowerCase()
+}
+export {uppercaseString, lowercaseString}
+
+import {uppercaseString, lowercaseString} from './string_functions.js'
+
+uppercaseString("hello");
+lowercaseString("WORLD!");
+

@@ -28,5 +28,5 @@ const wait = (num) => {
             } , num);
     });
 }
-//this function takes in a number that is passed to the setTimeout() as milliseconds and returns a resolve message after the specified time
+//this function takes in a number that is passed to the setTimeout() as milliseconds, creates a new promise, and returns a resolve message after the specified time
 wait(1000).then((message) => console.log(message));
