@@ -133,3 +133,79 @@ const bicycle = {
 bicycle.setGear(3);
 console.log(bicycle.gear);
 
+//CLASS CONSTRUCTOR
+class Vegetable {
+    constructor(name) {
+        this.name = name
+    }
+}
+const carrot = new Vegetable('carrot');
+console.log(carrot.name);
+
+//Promises
+fetch('https://api.github.com/users')
+    .then(response => console.log(response))
+    .catch(error => console.error(error))
+
+const myPromise = fetch('https://api.github.com/users');
+myPromise.then(response => console.log(response));
+myPromise.catch(error => console.error(error));
+
+const githubPromise = fetch('https://api.github.com/repositories');
+const bitbucketPromise = fetch('https://api.bitbucket.org/2.0/repositories');
+
+Promise.all([githubPromise, bitbucketPromise])
+    .then(function(data) {
+        // here data is an array of the resolved values from each promise
+        // we can now do something with both pieces of data
+    })
+    .catch(function(error) {
+        // handle errors
+    });
+
+fetch('https://api.github.com/users').then( response => {
+    response.json().then( users => {
+        users.forEach( user => {
+            // do something with each user object...
+            console.log(user);
+        });
+    });
+});
+
+fetch('https://api.github.com/users')
+    .then( response => response.json())
+    .then( users => {
+        users.forEach( userObj  => {
+            // do something with the username login
+            console.log(userObj.login);
+        });
+    })
+    .catch(error => console.error(error));
+
+const getGithubUsernames = () => {
+    return fetch('https://api.github.com/users')
+        .then(response => response.json())
+}
+
+getGithubUsernames().then( users => {
+    users.forEach( userObj => {
+        // do something with each username
+        console.log(userObj.login);
+    });
+}).catch(error => console.error(error));
+
+//CREATING PROMISES
+const myPromise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (Math.random() > 0.5) {
+            resolve();
+        } else {
+            reject();
+        }
+    }, 1500);
+});
+
+console.log(myPromise2); // a pending promise
+
+myPromise2.then(() => console.log('resolved!'));
+myPromise2.catch(() => console.log('rejected!'));
