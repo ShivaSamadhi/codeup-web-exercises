@@ -252,17 +252,35 @@ myPromise2.catch(() => console.log('rejected!'));
 //MODULE SCRIPT (HTML)
 // <script type="module" src="index.js"></script>
 
-const uppercaseString = (string) => {
-    return string.toUpperCase();
-}
+// const uppercaseString = (string) => {
+//     return string.toUpperCase();
+// }
+//
+// const lowercaseString = (string) => {
+//     return string.toLowerCase()
+// }
+// export {uppercaseString, lowercaseString}
+//
+// import {uppercaseString, lowercaseString} from './string_functions.js'
+//
+// uppercaseString("hello");
+// lowercaseString("WORLD!");
 
-const lowercaseString = (string) => {
-    return string.toLowerCase()
-}
-export {uppercaseString, lowercaseString}
-
-import {uppercaseString, lowercaseString} from './string_functions.js'
-
-uppercaseString("hello");
-lowercaseString("WORLD!");
+const reviewObj = {
+    restaurant_id: 1,
+    name: 'Codey',
+    rating: 5,
+    comments: "This is a really good place for coding and eating"
+};
+const url = 'https://codeup-restful-example.glitch.me/reviews';
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(reviewObj),
+};
+fetch(url, options)
+    .then( response => console.log(response) ) /* review was created successfully */
+    .catch( error => console.error(error) ); /* handle errors */
 

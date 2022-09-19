@@ -73,6 +73,9 @@ console.log(`Your instructors are: ${allNames}.`)
 console.log(experience)
 console.log(longEmail)
 
+let searchBtn = document.querySelector('#search-btn')
+let search = document.querySelector('#search').value
+searchBtn.addEventListener('click')
 const languages = users
     .reduce((previousValue, currentValue) =>
         [...new Set([...previousValue, ...currentValue.languages])], [])
