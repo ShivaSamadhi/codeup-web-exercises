@@ -42,35 +42,43 @@ console.log(multiLang)
 let emails = users.map(({email}) => email)
 console.log(emails)
 
-let experience = (users.reduce((total,{yearsOfExperience}) => total + yearsOfExperience, 0)/(users.length))
+let experience = (users
+                .reduce((total,{yearsOfExperience}) => total + yearsOfExperience, 0)
+                /(users.length)
+                )
 console.log(experience)
 
 
 let longEmail = users.reduce((arr, {email})=>{
     arr.push(email);
+    //pushes each email to the empty arr
     let max = arr[0].length;
+    //takes the length of the first element of the arr and makes it the current max
     arr.map(item => max = Math.max(max, item.length));
-    let str = arr.filter(item => item.length == max);
+    //this maps the arr and resets the current max value once a length comparison is made
+    let str = arr.filter(item => item.length === max);
+    //this filters the arr looking for the item that matches the current max length and returns that item
     return str;
 },[])
 
 let allNames = users.reduce((str, {name})=>{
     str.push(name)
+    str.join(', ')
     return str
-},[]).join(', ')
-let instructors = (str) =>{
-    return `Your instructors are: ${str}.`
-}
+},[])
+console.log(`Your instructors are: ${allNames}.`)
 
 
-console.log(instructors(allNames))
+
 console.log(experience)
 console.log(longEmail)
 
 const languages = users
-                    .reduce((previousValue, currentValue) =>
-                        [...previousValue,...currentValue.languages],[])
-                    .reduce((unique, curr) =>
-                        !unique.includes(curr) ? [...unique, curr] : [...unique],[])
+    .reduce((previousValue, currentValue) =>
+        [...new Set([...previousValue, ...currentValue.languages])], [])
+                    // .reduce((previousValue, currentValue) =>
+                    //     [...previousValue,...currentValue.languages],[])
+                    // .reduce((unique, curr) =>
+                    //     !unique.includes(curr) ? [...unique, curr] : [...unique],[])
 
 console.log(languages)
