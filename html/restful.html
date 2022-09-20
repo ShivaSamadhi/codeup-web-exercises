@@ -2,9 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>RESTful API</title>
 </head>
 <body>
 
+<script>
+//    const getJSON = async () => {
+//        try{
+//            const res = await fetch("https://resisted-ripple-budget.glitch.me/books")
+//            const data = await res.json()
+//            console.log(data)
+//    } catch (e) {
+//            console.log(`Error Occurred: ${e}`)
+//        }
+//    }
+// getJSON()
+//
+// const newBook = {
+//        "title": "Dune",
+//        "author": "Frank Herbert"
+// }
+//
+// const postJSON = async (book) => {
+//        try{
+//            fetch("https://resisted-ripple-budget.glitch.me/books", {
+//                method: 'POST',
+//                headers: {
+//                    'Content-Type': 'application/json',
+//                },
+//                body: JSON.stringify(book),
+//            }).then(getJSON)
+//        } catch (e) {
+//            console.log(`Error Occurred: ${e}`)
+//        }
+// }
+// postJSON(newBook)
+
+const getJSON = async()=>{
+    try {
+        const res = await fetch("https://flame-valuable-chive.glitch.me/books");
+        const data = await res.json();
+        console.log(data);
+    } catch (e) {
+        console.log("Error Occurred :(", e);
+    }
+};
+getJSON();
+
+const newBook = {
+    "title": "Dune",
+    "author": "Frank Herbert"
+};
+
+const postJSON = (book)=>{
+    try{
+        fetch("https://flame-valuable-chive.glitch.me/books", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(book),
+        }).then(getJSON);
+    } catch (e) {
+        console.log("Error Occurred :(", e);
+    }
+}
+postJSON(newBook)
+</script>
 </body>
 </html>
