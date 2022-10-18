@@ -4,7 +4,7 @@ let weatherAPI = "http://api.openweathermap.org/data/2.5/forecast"
 
 //MAPBOX API
 mapboxgl.accessToken = MAPBOX_TOKEN;
-var map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     zoom: 8,
@@ -62,7 +62,7 @@ let append = (data) => {
            console.log(data[i])
            const {dt_txt, main: {humidity, temp, temp_max, temp_min}, weather: [{description, icon}], wind: {speed}} = data[i]
            html += `
-            <div class="card bg-dark border-light" style="width: 20%;">
+            <div class="card bg-dark border-light" style="width: 20%;">2
                <h5 class="card-header text-center bg-secondary text-light opacity-75 mb-2">${dt_txt.substring(5,7)}.${dt_txt.substring(8,10)}.${dt_txt.substring(0,4)}
                </h5>
                <img src='http://openweathermap.org/img/w/${icon}.png' class="img-thumbnail mx-auto d-block border-0" style='width: 100px; height: 100px;' alt="...">
